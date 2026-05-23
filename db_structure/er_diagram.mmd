@@ -1,0 +1,67 @@
+%% Схема БД football_service (PostgreSQL). Просмотр: GitHub, VS Code (Mermaid), https://mermaid.live
+erDiagram
+    Country ||--o{ City : "country_id"
+    City ||--o{ Stadium : "city_id"
+    Stadium ||--o{ Club : "stadium_id"
+    player_subtype ||--o{ Player : "subtype_id"
+    Country ||--o{ Player : "nationality_country_id"
+    Club ||--o{ Player : "club_id"
+    Club ||--o{ Club_Trophy : "club_id"
+    Trophy ||--o{ Club_Trophy : "trophy_id"
+
+    Country {
+        int country_id PK
+        string name
+        string region
+    }
+    City {
+        int city_id PK
+        string name
+        int country_id FK
+    }
+    Stadium {
+        int stadium_id PK
+        string name
+        string type_of_pitch
+        int city_id FK
+    }
+    Club {
+        int club_id PK
+        string name
+        int stadium_id FK
+        int rating
+    }
+    player_subtype {
+        int subtype_id PK
+        string name
+        string position_category
+    }
+    Player {
+        int player_id PK
+        string name
+        int age
+        decimal salary
+        int subtype_id FK
+        string photo_url
+        int transfermarkt_player_id
+        int club_id FK
+        int nationality_country_id FK
+        int goals_last_season
+        int assists_last_season
+    }
+    Trophy {
+        int trophy_id PK
+        string name
+        decimal prize_fund
+    }
+    Club_Trophy {
+        int club_id FK
+        int trophy_id FK
+        int year_won PK
+    }
+    Users {
+        int user_id PK
+        string username
+        string password
+        string role
+    }

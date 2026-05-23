@@ -1,0 +1,7 @@
+streamlit>=1.28.0
+psycopg2-binary>=2.9.9
+werkzeug>=3.0.0
+python-dotenv>=1.0.0
+boto3>=1.34.0
+python-pptx>=1.0.0
+matplotlib>=3.8.0
