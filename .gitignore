@@ -1,0 +1,21 @@
+# Секреты и локальная конфигурация
+.env
+.env.local
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+ENV/
+
+# Streamlit (локальные секреты; в облаке задаются в панели хостинга)
+.streamlit/secrets.toml
+
+# IDE
+.idea/
+.vscode/
+
